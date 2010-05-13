@@ -52,14 +52,12 @@ CharLimiter.prototype = {
       this.counterElem.removeClassName('charcount-limit');
       this.counterElem.addClassName('charcount-safe');
     }
-    this.counterElem.update($F(this.fieldElem).length + '/' + this.options.maxLimit );
+    this.counterElem.update(this.options.maxLimit - $F(this.fieldElem).length);
   }
 }
 
-
-// auto count textareas with our class
-Event.observe(window, 'load', function() {
-
+// Class level function to attach limiter to text areas
+CharLimiter.findAndLimit = function() {
   // find each text area with the class "char_limiter" and add the limiter
   $$('textarea.char_limiter').each(function(textArea) {
       opts = {};
@@ -71,6 +69,9 @@ Event.observe(window, 'load', function() {
       }
       new CharLimiter(textArea, textArea.readAttribute('counter'), opts);
                                    });
+}
 
-
-              });
+// auto count textareas with our class
+Event.observe(window, 'load', function() {
+    CharLimiter.findAndLimit();
+  });
