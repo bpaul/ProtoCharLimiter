@@ -1,0 +1,10 @@
+/* override these styles to control the counter look */
+
+.charcount-limit
+{
+  color: red;
+}
+.charcount-safe
+{ 
+  color: green;
+}

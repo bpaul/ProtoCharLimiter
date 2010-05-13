@@ -1,0 +1,30 @@
+Char Limiter
+============
+A simple unobtrusive javascript class for limiting the length of text input into a text field. Written for prototype
+
+Usage
+=====
+Include charlimiter.js
+Include charlimiter.css   - Optional, you may want to just add the styles to your stylesheet
+
+
+In your HTML declare your textarea as follows:
+<textarea class="char_limiter" counter="counter_name"></textarea>
+
+Add a div for the counter:
+<div id="counter_name"></div>
+
+And that's it!
+
+Options
+=======
+max: 140
+By default the max number of characters is limited to 140 (ie a tweet). You can change this by adding max=<some number> to your textarea.
+
+limit: false
+By default the max is a 'soft' max. IE the users can continue counting and the counter will go negative. To make this a 'hard' max
+
+An example with these options would be:
+
+<textarea class="char_limiter" counter="counter_name" max=240 limit='true'></textarea>
+
